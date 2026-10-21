@@ -1,0 +1,32 @@
+dependencies:
+  espressif/esp_delta_ota:
+    component_hash: 147161b602ef51e9f6649eb6d90c4d4ac3c94228cb264fa0e68be7877180462d
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.3'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.1.4
+  espressif/esp_modem:
+    component_hash: 71c9f54fc512c60d93ea9763377ceb1d5b575a4616f3f3344440b97e2a38da29
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.4.3
+  idf:
+    source:
+      type: idf
+    version: 5.3.1
+direct_dependencies:
+- espressif/esp_delta_ota
+- espressif/esp_modem
+- idf
+manifest_hash: 20ae381aaa60d9ba6414c29fad3e57dca58f4c8f954d5c3a4e0c8a57fea6e2e2
+target: esp32s3
+version: 2.0.0
