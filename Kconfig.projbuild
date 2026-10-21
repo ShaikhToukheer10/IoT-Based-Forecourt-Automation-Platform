@@ -1,0 +1,35 @@
+menu "HPCL Mesh-Lite"
+
+    config MESH_CHANNEL
+        int "Mesh SoftAP channel"
+        range 1 14
+        default 6
+        help
+            Fixed Wi-Fi channel for Mesh-Lite SoftAP / ESP-NOW discovery (must match across nodes).
+
+    config MESH_DISCOVERY_WINDOW_MS
+        int "ESP-NOW site MAC discovery window (ms)"
+        range 0 60000
+        default 8000
+        help
+            Temporary: before Mesh-Lite starts, nodes broadcast STA MACs over ESP-NOW and
+            build a site roster. Lowest MAC becomes root. Set 0 to skip discovery
+            (use NVS / SoftAP onboarding roster only).
+
+    config MESH_SAMPLE_INTERVAL_MS
+        int "Bidirectional sample ping interval (ms)"
+        range 1000 60000
+        default 10000
+        help
+            How often this node sends sample hub_ping / site_roster over Mesh-Lite.
+
+    config MESH_MIN_PARENT_RSSI
+        int "Minimum parent signal (dBm)"
+        range -100 -40
+        default -75
+        help
+            A node will not attach to a parent (root or relay) weaker than this. A node that
+            hears the root only below this joins a stronger neighbour instead; with no parent
+            above it, the node stays off Wi-Fi mesh and sales go over LoRa.
+
+endmenu
